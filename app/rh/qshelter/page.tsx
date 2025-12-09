@@ -12,10 +12,10 @@ import { DataResponse } from "@/component/RH/type";
 import moment from "moment";
 import { useSearchParams } from "next/navigation";
 
-import React, { useRef, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import generatePDF, { Margin } from "react-to-pdf";
 
-export default function OfferPage() {
+function OfferPage() {
   const componentRef = useRef<HTMLDivElement>(null);
   const queryParams = useSearchParams();
   const paramsData = queryParams.get("data");
@@ -52,7 +52,7 @@ export default function OfferPage() {
           margin: Margin.NONE,
         },
       });
-    } 
+    }
   }, [application, hash]);
 
   const dataPayload = {
@@ -74,7 +74,7 @@ export default function OfferPage() {
     accountName: application?.wallet.account_name,
     accountNumber: application?.wallet.account_number,
     bank: application?.wallet.bank_name,
-    installment: application?.application.installment
+    installment: application?.application.installment,
   };
 
   return (
@@ -158,5 +158,13 @@ export default function OfferPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<h3>Downloading Offer Letter...</h3>}>
+      <OfferPage />
+    </Suspense>
   );
 }
