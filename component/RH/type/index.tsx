@@ -146,6 +146,6 @@ export interface Application {
   created_at: string ;
   is_finished_property: boolean;
   property_finished_type: string | null;
-  installment: string | undefined
+  contribution: string | undefined
 
 }

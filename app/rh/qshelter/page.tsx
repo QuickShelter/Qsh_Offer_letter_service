@@ -74,7 +74,7 @@ function OfferPage() {
     accountName: application?.wallet.account_name,
     accountNumber: application?.wallet.account_number,
     bank: application?.wallet.bank_name,
-    installment: application?.application.installment,
+    installment: application?.application.contribution,
   };
 
   return (
