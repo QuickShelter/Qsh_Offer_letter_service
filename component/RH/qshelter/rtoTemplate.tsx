@@ -191,6 +191,7 @@ export const QshelterRtoLetter = (props: props) => {
                 className="h-14 object-contain"
                 width={100}
                 height={100}
+                loading="eager"
               />
               <p className="font-semibold">Florence Alao</p>
               <p className="text-sm ">Legal Counsel/Company Secretary</p>
