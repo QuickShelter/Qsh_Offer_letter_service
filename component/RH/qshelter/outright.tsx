@@ -66,9 +66,9 @@ export const QshelterOutrightLetter = (props: props) => {
         <div>
           <p className="text-end font-semibold">{props.date}</p>
           <div className="max-w-60 text-sm font-semibold">
-            <p className="mb-2">{props.name}</p>
+            <p className="mb-2">{props.name},</p>
             <p>{props.address}</p>
-            <p className="my-4">Dear {props.name}</p>
+            <p className="my-4">Dear {props.firstName}</p>
           </div>
         </div>
         <div>
@@ -236,7 +236,7 @@ export const QshelterOutrightLetter = (props: props) => {
             {/* Florence */}
             <div className="flex flex-col items-start space-y">
               <img
-                src="/scripts/urlFacebook.png"
+                src="https://d18ryawavfvuz3.cloudfront.net/urlfacebook.png"
                 alt="Florence signature"
                 className="h-14 object-contain"
                 width={100}
@@ -249,7 +249,7 @@ export const QshelterOutrightLetter = (props: props) => {
             {/* Adegbenge */}
             <div className="flex flex-col items-start space-y">
               <img
-                src="/scripts/urlyoutube.jpg"
+                src="https://d18ryawavfvuz3.cloudfront.net/urlyoutube.jpg"
                 alt="Adegbenga signature"
                 className="h-14 w-40 object-contain"
                 width={100}
@@ -303,4 +303,5 @@ interface props {
   accountNumber?: string | number;
   bankName?: string | number;
   ref: RefObject<HTMLDivElement | null>;
+  firstName? : string;
 }

@@ -75,6 +75,7 @@ function OfferPage() {
     accountNumber: application?.wallet.account_number,
     bank: application?.wallet.bank_name,
     installment: application?.application.contribution,
+    first_name : application?.user.first_name
   };
 
   return (
@@ -99,6 +100,7 @@ function OfferPage() {
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
               ref={componentRef}
+              firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "nhf" ? (
             <QshelterNhfLetter
@@ -117,6 +119,7 @@ function OfferPage() {
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
               ref={componentRef}
+              firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "help_to_own" ? (
             <QshelterHelpToOwnLetter
@@ -135,6 +138,7 @@ function OfferPage() {
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
               ref={componentRef}
+              firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "buyoutrightly" ? (
             <QshelterOutrightLetter
@@ -151,6 +155,7 @@ function OfferPage() {
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
               ref={componentRef}
+              firstName={dataPayload.first_name}
             />
           ) : (
             <div ref={componentRef}> Invalid Link</div>
