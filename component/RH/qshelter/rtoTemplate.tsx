@@ -109,7 +109,7 @@ export const QshelterRtoLetter = (props: props) => {
           </ol>
         </div>
       </div>
-      <div className="h-[297mm] pt-10 p-6">
+      <div className="h-[297mm] pt-4 p-6">
         <ol className="list-none text-sm px-8 space-y2">
           <li>
             <span className="font-semibold">7. LEGAL DOCUMENTATION:</span> A
@@ -186,12 +186,12 @@ export const QshelterRtoLetter = (props: props) => {
             {/* Florence */}
             <div className="flex flex-col items-start space-y">
               <img
-                src="https://d18ryawavfvuz3.cloudfront.net/urlfacebook.png"
+                src="/test.png"
                 alt="Florence signature"
                 className="h-14 object-contain"
                 width={100}
                 height={100}
-                loading="eager"
+                
               />
               <p className="font-semibold">Florence Alao</p>
               <p className="text-sm ">Legal Counsel/Company Secretary</p>
@@ -200,7 +200,7 @@ export const QshelterRtoLetter = (props: props) => {
             {/* Adegbenge */}
             <div className="flex flex-col items-start space-y">
               <img
-                src="https://d18ryawavfvuz3.cloudfront.net/urlyoutube.jpg"
+                src="/scripts/urlyoutube.jpg"
                 alt="Adegbenga signature"
                 className="h-14 w-40 object-contain"
                 width={100}
