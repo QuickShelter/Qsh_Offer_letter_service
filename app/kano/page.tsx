@@ -4,10 +4,10 @@ import {
   decodeBase64,
   hashSHA512Client,
 } from "@/component/RH/hooks/letterFunctions";
-import { QshelterHelpToOwnLetter } from "@/component/RH/qshelter/help-to-ownTemplate";
-import { QshelterNhfLetter } from "@/component/RH/qshelter/nhfTemplate";
-import { QshelterOutrightLetter } from "@/component/RH/qshelter/outright";
-import { QshelterRtoLetter } from "@/component/RH/qshelter/rtoTemplate";
+import { KanoHelpToOwnLetter } from "@/component/RH/kano/help-to-ownTemplate";
+import { KanoNhfLetter } from "@/component/RH/kano/nhfTemplate";
+import { KanoOutrightLetter } from "@/component/RH/kano/outright";
+import { KanoRtoLetter } from "@/component/RH/kano/rtoTemplate";
 import { DataResponse } from "@/component/RH/type";
 import moment from "moment";
 import { useSearchParams } from "next/navigation";
@@ -77,6 +77,7 @@ function OfferPage() {
     installment: application?.application?.contribution,
     first_name : application?.user?.first_name
   };
+  console.log(application)
 
   return (
     <div className="p-8">
@@ -84,7 +85,7 @@ function OfferPage() {
       <div>
         <div className=" fixed left-full top-0">
           {application?.application?.plan === "rto" ? (
-            <QshelterRtoLetter
+            <KanoRtoLetter
               date={dataPayload.date}
               address={dataPayload.address}
               name={dataPayload.name}
@@ -103,7 +104,7 @@ function OfferPage() {
               firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "nhf" ? (
-            <QshelterNhfLetter
+            <KanoNhfLetter
               date={dataPayload.date}
               address={dataPayload.address}
               name={dataPayload.name}
@@ -122,7 +123,7 @@ function OfferPage() {
               firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "help_to_own" ? (
-            <QshelterHelpToOwnLetter
+            <KanoHelpToOwnLetter
               date={dataPayload.date}
               address={dataPayload.address}
               name={dataPayload.name}
@@ -141,7 +142,7 @@ function OfferPage() {
               firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "buyoutrightly" ? (
-            <QshelterOutrightLetter
+            <KanoOutrightLetter
               date={dataPayload.date}
               address={dataPayload.address}
               name={dataPayload.name}

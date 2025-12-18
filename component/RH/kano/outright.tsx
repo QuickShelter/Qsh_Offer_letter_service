@@ -107,7 +107,7 @@ export const KanoOutrightLetter = (props: props) => {
               {props.location}.
             </li>
             <li>
-              <span className="font-semibold">Title:</span>3. CERTIFICATE OF
+              <span className="font-semibold">3.Title:</span> CERTIFICATE OF
               OCCUPANCY. (Deed of Assignment will be issued to Subscribers).
             </li>
             <li>
@@ -122,7 +122,7 @@ export const KanoOutrightLetter = (props: props) => {
             </div>
             <li className=" list-none mt-2">
               <p>
-                6. <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
+                 <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
                 Contract of Sale and Deed of Assignment shall be executed
                 between the company and the purchaser upon receipt of the full
                 purchase price. The Subscriber shall bear the cost of
@@ -152,8 +152,8 @@ export const KanoOutrightLetter = (props: props) => {
                 ) : (
                   <span className="font-bold">
                     <NumberToText number={totalMonths} /> ({totalMonths}) MONTHS
-                    INSTALLMENT PAYMENT PLAN : {minimumDownPayment}% of the
-                    property price
+                    INSTALLMENT PAYMENT PLAN : {minimumDownPayment}% down
+                    payment of the property price
                   </span>
                 )}
               </span>
@@ -192,14 +192,14 @@ export const KanoOutrightLetter = (props: props) => {
             )}
           </li>
 
-          <li>
-            11. <span className="font-bold">REFUND: </span>
+          <li className="mt-4">
+            <span className="font-bold">11. REFUND: </span>
             Please note that refund is at the discretion of the developer and
             shall be less 15% of the total sum paid to the developer upon
             subsequent sale to a new purchaser.
           </li>
-          <li>
-            12. <span className="font-bold">PAYMENT TERMS: </span>
+          <li className="mt-4">
+            <span className="font-bold">12. PAYMENT TERMS: </span>
             <ul className="list-none flex items-start gap-3 flex-col mt-1">
               {installments === 1 ? (
                 <li>
@@ -227,7 +227,7 @@ export const KanoOutrightLetter = (props: props) => {
               )}
             </ul>
           </li>
-          <li>
+          <li className="mt-4">
             13. Kindly be informed that if the above payments are not received
             within 7 (seven) working days after the expected due dates, your
             allocation would be revoked
@@ -235,12 +235,11 @@ export const KanoOutrightLetter = (props: props) => {
         </ol>
         <p className="text-sm px-8 mt-2">
           <span className="font-semibold">14. OTHER TERMS AND CONDITION:</span>
-          All subscribers covenant to abide by the terms and
-                            conditions contained in the final offer letter and
-                            the Contract of Sale, in addition to all conditions
-                            and terms imposed by the Kano State Government
-                            relating to payments of rates, taxes and such other
-                            statutory charges.
+          All subscribers covenant to abide by the terms and conditions
+          contained in the final offer letter and the Contract of Sale, in
+          addition to all conditions and terms imposed by the Kano State
+          Government relating to payments of rates, taxes and such other
+          statutory charges.
           <br />
           Kindly indicate your acceptance of this offer by signing in the space
           provided be herein and return the duly signed copy of this Provisional

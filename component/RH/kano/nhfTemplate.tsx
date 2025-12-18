@@ -10,7 +10,7 @@ import Image from "next/image";
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
-export const QshelterNhfLetter = (props: props) => {
+export const KanoNhfLetter = (props: props) => {
   return (
     <div className="w-[210mm]" ref={props.ref}>
       <div className=" h-[297mm] p-6">
@@ -61,15 +61,17 @@ export const QshelterNhfLetter = (props: props) => {
             {props.location}
           </h1>
           <p className="text-sm my-4">
-            We are pleased to offer you a unit of {props.title}. located at the
-            Renewed Hope Housing City, {props.location} "Subject to Contract."
+            Sequel to your application for a housing unit, we are pleased to
+            convey the approval of a provisional offer of a {props.title} in
+            your favour located at the Renewed Hope Cities and Estates,{" "}
+            {props.location}.
           </p>
           <ol className="list-none text-sm px-8 space-y-2">
             <li>
               <span className="font-semibold">1. PROPERTY DESCRIPTION:</span>{" "}
-              {props.title} situated at Renewed Hope Housing City,{" "}
-              {props.location} Nigeria with infrastructural amenities: (road
-              network, drainage, electricity, water supply, shopping mall and
+              {props.title} situated at Renewed Hope Cities and Estates,{" "}
+              {props.location} with infrastructural amenities: (road network,
+              drainage, electricity, water supply, shopping mall and
               recreational centre)
             </li>
             <li>
@@ -78,28 +80,47 @@ export const QshelterNhfLetter = (props: props) => {
               {props.location}.
             </li>
             <li>
-              <span className="font-semibold">Title:</span>3. DEVELOPMENT LEASE
-              AGREEMENT. (Deed of Sublease will be issued to Subscribers).
+              <span className="font-semibold">3. Title:</span> CERTIFICATE OF
+              OCCUPANCY. (Deed of Assignment will be issued to Subscribers).
             </li>
             <li>
               <span className="font-semibold">4. FINISHING TYPE:</span>{" "}
               {handleFinishingName(props.finishingType)}.
             </li>
             <div>
-              <span className="font-semibold">4b. FEATURES</span>{" "}
+              <span className="font-semibold">5. FEATURES</span>{" "}
               <ul className="space-y-2 px-4">
                 {featuresListOptions(props.finishingType)}.{" "}
               </ul>
             </div>
+            <li className=" list-none mt-2">
+              <p>
+                 <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
+                Contract of Sale and Deed of Assignment shall be executed
+                between the company and the purchaser upon receipt of the full
+                purchase price. The Subscriber shall bear the cost of
+                registration of deed of assignment or any instrument that
+                confers title to the purchaser. Survey plan will be procured for
+                interested subscribers at their cost
+              </p>
+            </li>
 
             <li>
-              <span className="font-semibold">5. COST OF PROPERTY:</span>{" "}
+              <span className="font-semibold">7. COST OF PROPERTY:</span>{" "}
               &#8358;
               {formatToCurrencyString(props.amount)}{" "}
               <NumberToWordsConverter currency="Naria" number={props.amount} />
             </li>
+
             <li>
-              <span className="font-semibold">6. DOCUMENTATION FEE:</span>{" "}
+              8.{" "}
+              <span className="font-bold">
+                EQUITY CONTRIBUTION TO BE MADE:{" "}
+              </span>
+              :{props.minimumDownpayment} % of property price
+            </li>
+            <li>
+              <span className="font-semibold">9. DOCUMENTATION FEE:</span>{" "}
               {props.documentationFee}% of the property cost
             </li>
           </ol>
@@ -108,31 +129,37 @@ export const QshelterNhfLetter = (props: props) => {
       <div className="h-[297mm] pt-4 p-6">
         <ol className="list-none text-sm px-8 space-y2">
           <li>
-            <span className="font-semibold">7. LEGAL DOCUMENTATION:</span> A
-            Contract of Sale shall be executed between the company and the
-            purchaser upon receipt of the full purchase price. An executed deed
-            of sublease/survey plan shall be issued to the Purchaser. The
-            Purchaser shall bear the cost of survey plan and obtaining
-            Certificate of Occupancy.
-            <ol className="px-4 mt-4 list-[lower-alpha]" type="A">
-              <li>
-                <span className="font-semibold">a. VALIDITY:</span>
-                This offer is only valid subject to the acceptance of same and
-                receipt of your minimum down payment of{" "}
-                {props.minimumDownpayment}% of the purchase price within two (2)
-                weeks from the date of this offer and compliance to the terms
-                incorporated therein.
-                <span className="font-semibold">
-                  {" "}
-                  (Please note that refund is at the discretion of the developer
-                  and shall be less 15% of the total sum paid t o the developer
-                  upon subsequent sale to a new purchaser).
-                </span>
-              </li>
-            </ol>
+            <span className="font-bold">10. VALIDITY: </span>(
+            <span>
+              This offer is only valid subject to the acceptance of same and
+              receipt of your minimum down payment of {props.minimumDownpayment}
+              % of the purchase price within{" "}
+              <span className="font-bold">two (2) weeks</span> from the date of
+              this offer and compliance to the terms incorporated therein{" "}
+            </span>
+            )
           </li>
-          <li>
-            <span className="font-semibold">8. PAYMENT TERMS:</span>
+          <li className="mt-4">
+            <span className="font-bold">11. REFUND: </span>
+            Please note that refund is at the discretion of the developer and
+            shall be less 15% of the total sum paid to the developer upon
+            subsequent sale to a new purchaser.
+          </li>
+          <li className=" list-none mt-4">
+            <p>
+              12.{" "}
+              <span className="font-bold">
+                FINAL ALLOCATION AND RECEIPT OF PAYMENT:{" "}
+              </span>
+              Kindly be informed that final allocation and receipt of payment
+              shall be issued when all required documents to facilitate
+              disbursement of your loan from Federal Mortgage Bank of Nigeria
+              have been submitted.
+            </p>
+          </li>
+
+          <li className="mt-4">
+            <span className="font-semibold">13. PAYMENT TERMS:</span>
             <ol className="px-4 mt-2 list-">
               <li>
                 a. Minimum down payment of {props.minimumDownpayment}% of
@@ -148,12 +175,17 @@ export const QshelterNhfLetter = (props: props) => {
           </li>
         </ol>
         <p className="text-sm px-8 mt-2">
-          <span className="font-semibold"> OTHER TERMS AND CONDITION:</span>
-          All subscribers covenant to abide by the terms and conditions
+          <span className="font-semibold">14. OTHER TERMS AND CONDITION:</span>
+         All subscribers covenant to abide by the terms and conditions
           contained in the final offer letter and the Contract of Sale, in
-          addition to all conditions and terms imposed by the Federal Capital
-          Authority relating to payments of rates and taxes and such other
-          statutory charges
+          addition to all conditions and terms imposed by the Kano State
+          Government relating to payments of rates, taxes and such other
+          statutory charges.
+          <br />
+          The purchaser shall be given actual physical possession and keys upon
+          payment of the entire property price along with Value Added Tax (VAT)
+          or other relevant taxes or charges levied by statutory authorities on
+          the property.
           <br />
           Kindly indicate your acceptance of this offer by signing in the space
           provided be herein and return the duly signed copy of this Provisional
@@ -250,5 +282,5 @@ interface props {
   accountNumber?: string | number;
   bankName?: string | number;
   ref: RefObject<HTMLDivElement | null>;
-    firstName? : string;
+  firstName?: string;
 }
