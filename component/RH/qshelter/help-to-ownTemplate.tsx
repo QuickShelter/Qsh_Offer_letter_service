@@ -49,9 +49,9 @@ export const QshelterHelpToOwnLetter = (props: props) => {
         <div>
           <p className="text-end font-semibold">{props.date}</p>
           <div className="max-w-60 text-sm font-semibold">
-            <p className="mb-2">{props.name}</p>
+            <p className="mb-4">{props.name}</p>
             <p>{props.address}</p>
-            <p className="my-4">Dear {props.name}</p>
+            <p className="my-6">Dear {props.name}</p>
           </div>
         </div>
         <div>
@@ -113,8 +113,8 @@ export const QshelterHelpToOwnLetter = (props: props) => {
             of sublease/survey plan shall be issued to the Purchaser. The
             Purchaser shall bear the cost of survey plan and obtaining
             Certificate of Occupancy.
-            <ol className="px-4 mt-4 list-[lower-alpha]" type="A">
-              <li>
+            <ol className="px-4 mt-4 list-none">
+              <li className="list-none ">
                 <span className="font-semibold">a. VALIDITY:</span>
                 This offer is only valid subject to the acceptance of same and
                 receipt of your minimum down payment of{" "}
@@ -131,8 +131,8 @@ export const QshelterHelpToOwnLetter = (props: props) => {
             </ol>
           </li>
           <li>
-            <span className="font-semibold">8. PAYMENT TERMS:</span>
-            <ol className="px-4 mt-2 list-">
+            <span className="font-semibold mt-4">8. PAYMENT TERMS:</span>
+            <ol className="px-4 mt-2 list-none">
               <li>
                 a. Minimum down payment of {props.minimumDownpayment}% of
                 purchase price upon acceptance of provisional offer letter.

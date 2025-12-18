@@ -6,22 +6,18 @@ import {
   formatToCurrencyString,
   NumberToWordsConverter,
 } from "@/component/RH/hooks/priceHandlers";
-
+import Image from "next/image";
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
-export const QshelterRtoLetter = (props: props) => {
+export const QshelterNhfLetter = (props: props) => {
   return (
     <div className="w-[210mm]" ref={props.ref}>
       <div className=" h-[297mm] p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
             <div>
-              <img
-                src="/hope.png"
-                className="w-20 object-cover"
-                alt=""
-              />
+              <img src="/hope.png" className="w-20 object-cover" alt="" />
             </div>
 
             <div className="block">
@@ -54,9 +50,9 @@ export const QshelterRtoLetter = (props: props) => {
         <div>
           <p className="text-end font-semibold">{props.date}</p>
           <div className="max-w-60 text-sm font-semibold">
-            <p className="mb-4">{props.name},</p>
+            <p className="mb-2">{props.name},</p>
             <p>{props.address}</p>
-            <p className="my-6">Dear {props.firstName}</p>
+            <p className="my-4">Dear {props.firstName}</p>
           </div>
         </div>
         <div>
@@ -118,7 +114,7 @@ export const QshelterRtoLetter = (props: props) => {
             of sublease/survey plan shall be issued to the Purchaser. The
             Purchaser shall bear the cost of survey plan and obtaining
             Certificate of Occupancy.
-            <ol className="px-4 mt-4 list-none">
+            <ol className="px-4 mt-4 list-[lower-alpha]" type="A">
               <li>
                 <span className="font-semibold">a. VALIDITY:</span>
                 This offer is only valid subject to the acceptance of same and
@@ -136,7 +132,7 @@ export const QshelterRtoLetter = (props: props) => {
             </ol>
           </li>
           <li>
-            <span className="font-semibold mt-4">8. PAYMENT TERMS:</span>
+            <span className="font-semibold">8. PAYMENT TERMS:</span>
             <ol className="px-4 mt-2 list-">
               <li>
                 a. Minimum down payment of {props.minimumDownpayment}% of
@@ -144,10 +140,9 @@ export const QshelterRtoLetter = (props: props) => {
               </li>
               <li>
                 b. Balance of {100 - Number(props.minimumDownpayment)}% to be
-                financed through the Rent to Own product of the Federal Mortgage
-                Bank of Nigeria at an interest rate of {props.interestRate}% per
-                annum for up to a tenor of {props.tenor} years subject to terms
-                and conditions.
+                financed through the National Housing Fund loan at an interest{" "}
+                {props.interestRate}% per annum for up to a tenor of{" "}
+                {props.tenor} years subject to terms and conditions.
               </li>
             </ol>
           </li>
@@ -191,7 +186,6 @@ export const QshelterRtoLetter = (props: props) => {
                 className="h-14 object-contain"
                 width={100}
                 height={100}
-                
               />
               <p className="font-semibold">Florence Alao</p>
               <p className="text-sm ">Legal Counsel/Company Secretary</p>
