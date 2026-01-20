@@ -10,36 +10,40 @@ import {
   NumberToWordsConverter,
   useFutureDates,
 } from "@/component/RH/hooks/priceHandlers";
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useMemo,  } from "react";
 import * as Icon from "react-feather";
 
-export const KanoOutrightLetter = (props: props) => {
+export const KanoOutrightLetter = ({ pdfRef, ...props }: props) => {
   const totalMonths =
     Number(props.installment) > 4 ? Number(props.installment) * 3 : 12;
 
   const futureDates = useFutureDates(totalMonths);
   const { installmentAmount, installments, balance } = calculateInstallmentPlan(
     Number(props.amount),
-    Number(props.installment)
+    Number(props.installment),
   );
   const milestones = generateMilestones(
     installments,
     installmentAmount,
-    futureDates
+    futureDates,
   );
-  const [minimumDownPayment, setMinimumDownPayment] = useState(20);
 
-  useEffect(() => {
-    if (installments <= 4) {
-      setMinimumDownPayment(20);
-    } else if (installments === 5) {
-      setMinimumDownPayment(25);
-    } else if (installments === 6) {
-      setMinimumDownPayment(35);
-    }
+  const minimumDownPayment = useMemo(() => {
+    if (installments <= 4) return 20;
+    if (installments === 5) return 25;
+    if (installments === 6) return 35;
+    return 20;
   }, [installments]);
   return (
-    <div className="w-[210mm]" ref={props.ref}>
+    <div
+      ref={pdfRef}
+      style={{
+        fontFamily: "Arial, Helvetica, sans-serif",
+        wordBreak: "break-word",
+        overflowWrap: "break-word",
+      }}
+      className="w-[210mm] font-sans text-sm leading-[1.6]"
+    >
       <div className=" h-[297mm] p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
@@ -69,7 +73,10 @@ export const KanoOutrightLetter = (props: props) => {
             </div>
             <div className="flex items-center gap-2 text-xs font-bold">
               <Icon.MapPin size={12} className="text-primary font-medium" />{" "}
-              <p> 7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.</p>{" "}
+              <p>
+                {" "}
+                7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.
+              </p>{" "}
             </div>
           </div>
         </div>
@@ -122,7 +129,7 @@ export const KanoOutrightLetter = (props: props) => {
             </div>
             <li className=" list-none mt-2">
               <p>
-                 <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
+                <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
                 Contract of Sale and Deed of Assignment shall be executed
                 between the company and the purchaser upon receipt of the full
                 purchase price. The Subscriber shall bear the cost of
@@ -187,7 +194,8 @@ export const KanoOutrightLetter = (props: props) => {
                 receipt of your minimum down payment of {minimumDownPayment}% of
                 the purchase price within{" "}
                 <span className="font-bold">two (2) weeks</span> from the date
-                of this offer and compliance to the terms incorporated therein{" "}
+                of this offer and compliance to the terms incorporated
+                therein{" "}
               </span>
             )}
           </li>
@@ -293,7 +301,7 @@ export const KanoOutrightLetter = (props: props) => {
 
           {/* PURCHASER ACCEPTANCE */}
           <section className="space-y">
-            <h3 className="font-bold">PURCHASER'S ACCEPTANCE</h3>
+            <h3 className="font-bold">PURCHASER&apos;S ACCEPTANCE</h3>
             <p>
               I, Mr./Mrs./Dr./Chief
               .............................................................................
@@ -303,7 +311,7 @@ export const KanoOutrightLetter = (props: props) => {
             <div className="flex items-center justify-between mt-6">
               <div className="flex-1">
                 <p>
-                  PURCHASER'S SIGNATURE
+                  PURCHASER&apos;S SIGNATURE
                   .....................................................
                 </p>
               </div>
@@ -333,6 +341,6 @@ interface props {
   accountName?: string | number;
   accountNumber?: string | number;
   bankName?: string | number;
-  ref: RefObject<HTMLDivElement | null>;
+  pdfRef: RefObject<HTMLDivElement | null>;
   firstName?: string;
 }

@@ -10,9 +10,17 @@ import Image from "next/image";
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
-export const KanoHelpToOwnLetter = (props: props) => {
+export const KanoHelpToOwnLetter = ({ pdfRef, ...props }: props) => {
   return (
-    <div className="w-[210mm]" ref={props.ref}>
+    <div
+      style={{
+        fontFamily: "Arial, Helvetica, sans-serif",
+        wordBreak: "break-word",
+        overflowWrap: "break-word",
+      }}
+      className="w-[210mm] font-sans text-sm leading-[1.6]"
+      ref={pdfRef}
+    >
       <div className=" h-[297mm] p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
@@ -42,7 +50,10 @@ export const KanoHelpToOwnLetter = (props: props) => {
             </div>
             <div className="flex items-center gap-2 text-xs font-bold">
               <Icon.MapPin size={12} className="text-primary font-medium" />{" "}
-              <p> 7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.</p>{" "}
+              <p>
+                {" "}
+                7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.
+              </p>{" "}
             </div>
           </div>
         </div>
@@ -239,8 +250,8 @@ export const KanoHelpToOwnLetter = (props: props) => {
           </div>
 
           {/* PURCHASER ACCEPTANCE */}
-          <section className="space-y">
-            <h3 className="font-bold">PURCHASER'S ACCEPTANCE</h3>
+<section className="space-y">
+            <h3 className="font-bold">PURCHASER&apos;S ACCEPTANCE</h3>
             <p>
               I, Mr./Mrs./Dr./Chief
               .............................................................................
@@ -250,7 +261,7 @@ export const KanoHelpToOwnLetter = (props: props) => {
             <div className="flex items-center justify-between mt-6">
               <div className="flex-1">
                 <p>
-                  PURCHASER'S SIGNATURE
+                  PURCHASER&apos;S SIGNATURE
                   .....................................................
                 </p>
               </div>
@@ -282,6 +293,6 @@ interface props {
   accountName?: string | number;
   accountNumber?: string | number;
   bankName?: string | number;
-  ref: RefObject<HTMLDivElement | null>;
+  pdfRef: RefObject<HTMLDivElement | null>;
   firstName?: string;
 }

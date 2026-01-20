@@ -6,13 +6,21 @@ import {
   formatToCurrencyString,
   NumberToWordsConverter,
 } from "@/component/RH/hooks/priceHandlers";
-import Image from "next/image";
+
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
-export const KanoNhfLetter = (props: props) => {
+export const KanoNhfLetter = ({ pdfRef, ...props }: props) => {
   return (
-    <div className="w-[210mm]" ref={props.ref}>
+    <div
+      style={{
+        fontFamily: "Arial, Helvetica, sans-serif",
+        wordBreak: "break-word",
+        overflowWrap: "break-word",
+      }}
+      className="w-[210mm] font-sans text-sm leading-[1.6]"
+      ref={pdfRef}
+    >
       <div className=" h-[297mm] p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
@@ -42,7 +50,10 @@ export const KanoNhfLetter = (props: props) => {
             </div>
             <div className="flex items-center gap-2 text-xs font-bold">
               <Icon.MapPin size={12} className="text-primary font-medium" />{" "}
-              <p> 7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.</p>{" "}
+              <p>
+                {" "}
+                7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.
+              </p>{" "}
             </div>
           </div>
         </div>
@@ -95,7 +106,7 @@ export const KanoNhfLetter = (props: props) => {
             </div>
             <li className=" list-none mt-2">
               <p>
-                 <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
+                <span className="font-bold">6. LEGAL DOCUMENTATION: </span>A
                 Contract of Sale and Deed of Assignment shall be executed
                 between the company and the purchaser upon receipt of the full
                 purchase price. The Subscriber shall bear the cost of
@@ -176,7 +187,7 @@ export const KanoNhfLetter = (props: props) => {
         </ol>
         <p className="text-sm px-8 mt-2">
           <span className="font-semibold">14. OTHER TERMS AND CONDITION:</span>
-         All subscribers covenant to abide by the terms and conditions
+          All subscribers covenant to abide by the terms and conditions
           contained in the final offer letter and the Contract of Sale, in
           addition to all conditions and terms imposed by the Kano State
           Government relating to payments of rates, taxes and such other
@@ -239,7 +250,7 @@ export const KanoNhfLetter = (props: props) => {
 
           {/* PURCHASER ACCEPTANCE */}
           <section className="space-y">
-            <h3 className="font-bold">PURCHASER'S ACCEPTANCE</h3>
+            <h3 className="font-bold">PURCHASER&apos;S ACCEPTANCE</h3>
             <p>
               I, Mr./Mrs./Dr./Chief
               .............................................................................
@@ -249,7 +260,7 @@ export const KanoNhfLetter = (props: props) => {
             <div className="flex items-center justify-between mt-6">
               <div className="flex-1">
                 <p>
-                  PURCHASER'S SIGNATURE
+                  PURCHASER&apos;S SIGNATURE
                   .....................................................
                 </p>
               </div>
@@ -281,6 +292,6 @@ interface props {
   accountName?: string | number;
   accountNumber?: string | number;
   bankName?: string | number;
-  ref: RefObject<HTMLDivElement | null>;
+  pdfRef: RefObject<HTMLDivElement | null>;
   firstName?: string;
 }

@@ -10,18 +10,22 @@ import {
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
-export const QshelterRtoLetter = (props: props) => {
+export const QshelterRtoLetter = ({ pdfRef, ...props }: props) => {
   return (
-    <div className="w-[210mm]" ref={props.ref}>
+    <div
+      style={{
+        fontFamily: "Arial, Helvetica, sans-serif",
+        wordBreak: "break-word",
+        overflowWrap: "break-word",
+      }}
+      className="w-[210mm] font-sans text-sm leading-[1.6]"
+      ref={pdfRef}
+    >
       <div className=" h-[297mm] p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
             <div>
-              <img
-                src="/hope.png"
-                className="w-20 object-cover"
-                alt=""
-              />
+              <img src="/hope.png" className="w-20 object-cover" alt="" />
             </div>
 
             <div className="block">
@@ -46,7 +50,10 @@ export const QshelterRtoLetter = (props: props) => {
             </div>
             <div className="flex items-center gap-2 text-xs font-bold">
               <Icon.MapPin size={12} className="text-primary font-medium" />{" "}
-              <p> 7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.</p>{" "}
+              <p>
+                {" "}
+                7b Ondo Street, Osborne Foreshore Estate, Ikoyi, Lagos.
+              </p>{" "}
             </div>
           </div>
         </div>
@@ -66,7 +73,7 @@ export const QshelterRtoLetter = (props: props) => {
           </h1>
           <p className="text-sm my-4">
             We are pleased to offer you a unit of {props.title}. located at the
-            Renewed Hope Housing City, {props.location} "Subject to Contract."
+            Renewed Hope Housing City, {props.location} &quot;Subject to Contract.&quot;
           </p>
           <ol className="list-none text-sm px-8 space-y-2">
             <li>
@@ -191,7 +198,6 @@ export const QshelterRtoLetter = (props: props) => {
                 className="h-14 object-contain"
                 width={100}
                 height={100}
-                
               />
               <p className="font-semibold">Florence Alao</p>
               <p className="text-sm ">Legal Counsel/Company Secretary</p>
@@ -213,7 +219,7 @@ export const QshelterRtoLetter = (props: props) => {
 
           {/* PURCHASER ACCEPTANCE */}
           <section className="space-y">
-            <h3 className="font-bold">PURCHASER'S ACCEPTANCE</h3>
+            <h3 className="font-bold">PURCHASER&apos;S ACCEPTANCE</h3>
             <p>
               I, Mr./Mrs./Dr./Chief
               .............................................................................
@@ -223,7 +229,7 @@ export const QshelterRtoLetter = (props: props) => {
             <div className="flex items-center justify-between mt-6">
               <div className="flex-1">
                 <p>
-                  PURCHASER'S SIGNATURE
+                  PURCHASER&apos;S SIGNATURE
                   .....................................................
                 </p>
               </div>
@@ -255,6 +261,6 @@ interface props {
   accountName?: string | number;
   accountNumber?: string | number;
   bankName?: string | number;
-  ref: RefObject<HTMLDivElement | null>;
-    firstName? : string;
+  pdfRef: RefObject<HTMLDivElement | null>;
+  firstName?: string;
 }

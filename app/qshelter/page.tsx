@@ -99,7 +99,7 @@ function OfferPage() {
               accountName={dataPayload.accountName}
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
-              ref={componentRef}
+              pdfRef={componentRef}
               firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "nhf" ? (
@@ -137,7 +137,7 @@ function OfferPage() {
               accountName={dataPayload.accountName}
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
-              ref={componentRef}
+              pdfRef={componentRef}
               firstName={dataPayload.first_name}
             />
           ) : application?.application.plan === "buyoutrightly" ? (
@@ -154,7 +154,7 @@ function OfferPage() {
               accountName={dataPayload.accountName}
               bankName={dataPayload.bank}
               accountNumber={dataPayload.accountNumber}
-              ref={componentRef}
+              pdfRef={componentRef}
               firstName={dataPayload.first_name}
             />
           ) : (

@@ -6,7 +6,6 @@ import {
   formatToCurrencyString,
   NumberToWordsConverter,
 } from "@/component/RH/hooks/priceHandlers";
-import Image from "next/image";
 import { RefObject } from "react";
 import * as Icon from "react-feather";
 
