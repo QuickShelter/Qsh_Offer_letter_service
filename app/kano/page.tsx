@@ -57,7 +57,7 @@ function OfferPage() {
 
   const dataPayload = {
     date: moment(application?.application?.created_at).format("ll"),
-    address: application?.user?.address,
+    address: application?.user?.address || application?.user?.user,
     name: `${application?.user?.first_name} ${application?.user?.last_name}`,
     title: `${application?.property?.title}`,
     location: `${application?.property?.address}`,
@@ -77,7 +77,6 @@ function OfferPage() {
     installment: application?.application?.contribution,
     first_name : application?.user?.first_name
   };
-  console.log(application)
 
   return (
     <div className="p-8">

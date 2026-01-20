@@ -26,6 +26,7 @@ function OfferPage() {
     const decoded = decodeBase64(paramsData);
     if (!decoded) return;
     try {
+    
       const formatedapplication: DataResponse = JSON.parse(decoded);
       setapplication(formatedapplication);
 
@@ -57,7 +58,7 @@ function OfferPage() {
 
   const dataPayload = {
     date: moment(application?.application?.created_at).format("ll"),
-    address: application?.user?.address,
+    address: application?.user?.address || application?.user?.user,
     name: `${application?.user?.first_name} ${application?.user?.last_name}`,
     title: `${application?.property?.title}`,
     location: `${application?.property?.address}`,
@@ -74,9 +75,10 @@ function OfferPage() {
     accountName: application?.wallet?.account_name,
     accountNumber: application?.wallet?.account_number,
     bank: application?.wallet?.bank_name,
-    installment: application?.application?.contribution,
+    installment: application?.application?.contribution||1,
     first_name : application?.user?.first_name
   };
+  
 
   return (
     <div className="p-8">
@@ -149,7 +151,7 @@ function OfferPage() {
               location={dataPayload.location}
               amount={dataPayload.amount}
               finishingType={dataPayload.finishingType}
-              installment={dataPayload.installment}
+              installment={dataPayload.installment }
               documentationFee={dataPayload.documentationFee}
               accountName={dataPayload.accountName}
               bankName={dataPayload.bank}

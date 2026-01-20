@@ -27,7 +27,8 @@ export const QshelterOutrightLetter = ({ pdfRef, ...props }: props) => {
     installmentAmount,
     futureDates,
   );
-  return (
+  
+ return (
     <div
       style={{
         fontFamily: "Arial, Helvetica, sans-serif",
@@ -161,12 +162,12 @@ export const QshelterOutrightLetter = ({ pdfRef, ...props }: props) => {
                   currency="Naria"
                   number={installmentAmount}
                 />{" "}
-                of the purchase price within two (2) weeks from the date o f
-                this offer and compliance t o the terms incorporated therein.
+                of the purchase price within  (1) week from the date o f
+                this offer and compliance to the terms incorporated therein.
                 <span className="font-semibold">
                   {" "}
                   (Please note that refund is at the discretion of the developer
-                  and shall be less 15% of the total sum paid t o the developer
+                  and shall be less 15% of the total sum paid to the developer
                   upon subsequent sale to a new purchaser).
                 </span>
               </li>
@@ -176,17 +177,17 @@ export const QshelterOutrightLetter = ({ pdfRef, ...props }: props) => {
             <span className="font-semibold mt-4">9. PAYMENT TERMS:</span>
             <ol className="px-4 mt-2 list-">
               <li>
-                a. Minimum down payment of{" "}
+                a. Minimum down payment of{" "} &#8358;
                 {formatToCurrencyString(installmentAmount)}{" "}
                 <NumberToWordsConverter
                   number={installmentAmount}
                   currency="Naira"
                 />{" "}
-                of purchase price {installments === 1 && "with 7 (seven) days"}{" "}
+                of purchase price {installments === 1 ? "within 7 (seven) days" : null}{" "}
                 upon acceptance of provisional offer letter.
               </li>
               <li>
-                b. Balance of {formatToCurrencyString(balance)}{" "}
+                b. Balance of &#8358; {formatToCurrencyString(balance)}{" "}
                 <NumberToWordsConverter number={balance} currency="Naira" />{" "}
                 shall be paid within{" "}
                 {installments === 1

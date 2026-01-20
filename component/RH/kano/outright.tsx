@@ -221,7 +221,7 @@ export const KanoOutrightLetter = ({ pdfRef, ...props }: props) => {
                 </li>
               ) : (
                 <li>
-                  a. Minimum down payment of {minimumDownPayment}% f the
+                  a. Minimum down payment of {minimumDownPayment}% of the
                   property price to be paid within 2 weeks from the date of this
                   offer.
                 </li>

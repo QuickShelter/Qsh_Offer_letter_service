@@ -46,6 +46,7 @@ export interface User {
   payment_method: string | null;
   address: string | undefined;
   suspension_status_reason: string | null;
+  user?: string ;
 }
 
 /* ---------------- MORTGAGE ---------------- */

@@ -76,10 +76,10 @@ export function calculateInstallmentPlan(
   if (installments === 1) {
     return {
       totalAmount: amount,
-      downPayment: amount,
-      balance: 0,
+      downPayment: amount/2,
+      balance: amount/2,
       installments: 1,
-      installmentAmount: 0,
+      installmentAmount: amount/2,
     };
   }
 
