@@ -52,7 +52,7 @@ export const KanoOutrightLetter = ({ pdfRef, ...props }: props) => {
             </div>
 
             <div className="block">
-              <h2 className="text-[18px] text-primary font-bold m-0">
+              <h2 className="text-[18px] text-primary font-bold -mt-4">
                 RENEWED PROJECTS <br /> SPV LIMITED
               </h2>
               <p className=" font-bold text-[14px]">RC: 7329087</p>
@@ -84,9 +84,9 @@ export const KanoOutrightLetter = ({ pdfRef, ...props }: props) => {
         <div>
           <p className="text-end font-semibold">{props.date}</p>
           <div className="max-w-60 text-sm font-semibold">
-            <p className="mb-2">{props.name},</p>
+            <p className="">{props.name},</p>
             <p>{props.address}</p>
-            <p className="my-4">Dear {props.firstName}</p>
+            <p className="mt-2 mb-4">Dear {props.firstName}</p>
           </div>
         </div>
         <div>

@@ -49,7 +49,7 @@ function OfferPage() {
         filename: `${application.user.first_name} Offer letter`,
         page: {
           format: "letter",
-          margin: Margin.NONE,
+          margin: Margin.MEDIUM,
         },
       });
     }
