@@ -62,12 +62,12 @@ export const KanoNhfLetter = ({ pdfRef, ...props }: props) => {
           <p className="text-end font-semibold">{props.date}</p>
           <div className="max-w-60 text-sm font-semibold">
             <p className="">{props.name},</p>
-            <p>{props.address}</p>
-            <p className="mt-2 mb-4">Dear {props.firstName}</p>
+            <p>{props.address}.</p>
+            <p className="mt-2 mb-4">Dear {props.firstName},</p>
           </div>
         </div>
         <div>
-          <h1 className="text-xl font-bold uppercase">
+          <h1 className="text-lg  uppercase  text-[#161616] text-[15px] font-semibold whitespace-pre-line">
             PROVISIONAL OFFER LETTER FOR THE SALE OF {props.title} LOCATED AT{" "}
             {props.location}
           </h1>
@@ -271,6 +271,9 @@ export const KanoNhfLetter = ({ pdfRef, ...props }: props) => {
           </section>
 
           {/* NOTE */}
+          <li className="list-none mt-8 ">
+            <span className=" text-sm text-[#99a1af]">{props.uniqueId}</span>
+          </li>
         </div>
       </div>
     </div>
@@ -294,4 +297,5 @@ interface props {
   bankName?: string | number;
   pdfRef: RefObject<HTMLDivElement | null>;
   firstName?: string;
+  uniqueId?: string | number;
 }

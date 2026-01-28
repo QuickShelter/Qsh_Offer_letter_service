@@ -76,9 +76,11 @@ function OfferPage() {
     accountNumber: application?.wallet?.account_number,
     bank: application?.wallet?.bank_name,
     installment: application?.application?.contribution||1,
-    first_name : application?.user?.first_name
+    first_name : application?.user?.first_name,
+    uniqueId : application?.unique_id ? application?.unique_id : "",
   };
   
+  console.log("application", application?.unique_id);
 
   return (
     <div className="p-8">
@@ -103,6 +105,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "nhf" ? (
             <QshelterNhfLetter
@@ -122,6 +125,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "help_to_own" ? (
             <QshelterHelpToOwnLetter
@@ -141,6 +145,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "buyoutrightly" ? (
             <QshelterOutrightLetter
@@ -158,6 +163,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : (
             <div ref={componentRef}> Invalid Link</div>

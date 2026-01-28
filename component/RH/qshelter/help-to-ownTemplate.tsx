@@ -66,7 +66,7 @@ export const QshelterHelpToOwnLetter = ({ pdfRef, ...props }: props) => {
           </div>
         </div>
         <div>
-          <h1 className="text-xl font-bold uppercase">
+                 <h1 className="text-lg  uppercase  text-[#161616] text-[15px] font-semibold whitespace-pre-line">
             PROVISIONAL OFFER LETTER FOR THE SALE OF {props.title} LOCATED AT{" "}
             {props.location}
           </h1>
@@ -88,7 +88,7 @@ export const QshelterHelpToOwnLetter = ({ pdfRef, ...props }: props) => {
               {props.location}.
             </li>
             <li>
-              <span className="font-semibold">Title:</span>3. DEVELOPMENT LEASE
+              <span className="font-semibold">3. Title:</span> DEVELOPMENT LEASE
               AGREEMENT. (Deed of Sublease will be issued to Subscribers).
             </li>
             <li>
@@ -240,6 +240,9 @@ export const QshelterHelpToOwnLetter = ({ pdfRef, ...props }: props) => {
 
 
           {/* NOTE */}
+           <li className="list-none mt-8 ">
+            <span className=" text-sm text-[#99a1af] ">{props.uniqueId}</span>
+          </li>
         </div>
       </div>
     </div>
@@ -263,4 +266,5 @@ interface props {
   bankName?: string | number;
   pdfRef: RefObject<HTMLDivElement | null>;
   firstName?: string;
+  uniqueId?: string;
 }

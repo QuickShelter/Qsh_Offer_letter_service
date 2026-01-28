@@ -10,6 +10,7 @@ import { KanoOutrightLetter } from "@/component/RH/kano/outright";
 import { KanoRtoLetter } from "@/component/RH/kano/rtoTemplate";
 import { DataResponse } from "@/component/RH/type";
 import moment from "moment";
+import { unique } from "next/dist/build/utils";
 import { useSearchParams } from "next/navigation";
 
 import React, { Suspense, useRef, useState } from "react";
@@ -75,7 +76,8 @@ function OfferPage() {
     accountNumber: application?.wallet?.account_number,
     bank: application?.wallet?.bank_name,
     installment: application?.application?.contribution,
-    first_name : application?.user?.first_name
+    first_name : application?.user?.first_name,
+    uniqueId: application?.unique_id ? application?.unique_id : "",
   };
 
   return (
@@ -101,6 +103,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "nhf" ? (
             <KanoNhfLetter
@@ -120,6 +123,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "help_to_own" ? (
             <KanoHelpToOwnLetter
@@ -139,6 +143,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : application?.application.plan === "buyoutrightly" ? (
             <KanoOutrightLetter
@@ -156,6 +161,7 @@ function OfferPage() {
               accountNumber={dataPayload.accountNumber}
               pdfRef={componentRef}
               firstName={dataPayload.first_name}
+              uniqueId={dataPayload.uniqueId}
             />
           ) : (
             <div ref={componentRef}> Invalid Link</div>

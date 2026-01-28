@@ -4,7 +4,8 @@ export interface DataResponse {
   wallet: Wallet;
   property: Property;
   hash: string;
-  application : Application 
+  application : Application,
+  unique_id : string
 }
 
 /* ---------------- USER ---------------- */
